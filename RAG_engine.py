@@ -61,6 +61,24 @@ def retrieve_content (question, embed_model, chunks, index, num_chunks=3):
   return background
 
 #Ask
+def ask_rag (question, embed_modul, chunks, index, api_key, num_chunks, model_name = "openai/gpt-oss-120b"):
+  key = api_key
+  if not key:
+    raise ValueError("API key Missing")
+  background = retrieve_content(question, embed_model, chunks, index, num_chunks=3):
+  prompt = """ you are an professional ai assistant.
+  answer userr question using only document backgrojfn below .
+  do nint inbvet or assume facts.
+  if information not AVIAPNBG GRC, Simply say "Information misssinfg 
+  documengt backgroundn :""" + background + "user question " + question + "Answer:"
+  client = Groq(api_key = key)
+  response = client.chat.completions.create(
+    model = model_name,
+    messages = [ { "role" : "user",
+                   "content" : prompt}],
+                   temprature = 0.3,
+  )
+  return response.choices[0].message.content
 
              
       

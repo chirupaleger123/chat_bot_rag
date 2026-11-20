@@ -38,3 +38,4 @@ with st.chat_message("assistant"):
 if st.button("Clear chat"):
   st.session_state.chat_hist = []
   st.rerun()
+  

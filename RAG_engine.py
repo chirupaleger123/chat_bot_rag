@@ -1,5 +1,5 @@
 import faiss
-import nompy as np
+import numpy as np
 from groq import Groq
 from pydf import PdfReader
 from sentence_transformers import SentenceTransformers

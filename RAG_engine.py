@@ -80,5 +80,6 @@ def ask_rag (question, embed_modul, chunks, index, api_key, num_chunks, model_na
   )
   return response.choices[0].message.content
 
+
              
       
